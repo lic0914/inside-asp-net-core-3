@@ -41,9 +41,13 @@ namespace App
                 var optionsSnapshot2 = scopedProvider
                     .GetRequiredService<IOptionsSnapshot<FoobarOptions>>()
                     .Value;
+                var optionsSnapshot3 = scopedProvider
+                    .GetRequiredService<IOptionsMonitor<FoobarOptions>>()
+                    .Get(Options.DefaultName);
                 Console.WriteLine($"options:{options}");
                 Console.WriteLine($"optionsSnapshot1:{optionsSnapshot1}");
                 Console.WriteLine($"optionsSnapshot2:{optionsSnapshot2}\n");
+                Console.WriteLine($"optionsSnapshot3:{optionsSnapshot3}\n");
             }
         }
     }
